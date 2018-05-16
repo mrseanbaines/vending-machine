@@ -29,14 +29,14 @@ let myCoins = [
 ];
 
 let vendorsCoins = [
-  { name: '£2', value: 2, quantity: 1 },
-  { name: '£1', value: 1, quantity: 1 },
-  { name: '50p', value: 0.5, quantity: 1 },
-  { name: '20p', value: 0.2, quantity: 1 },
-  { name: '10p', value: 0.1, quantity: 1 },
-  { name: '5p', value: 0.05, quantity: 1 },
-  { name: '2p', value: 0.02, quantity: 1 },
-  { name: '1p', value: 0.01, quantity: 1 },
+  { name: '£2', value: 2, quantity: 10 },
+  { name: '£1', value: 1, quantity: 10 },
+  { name: '50p', value: 0.5, quantity: 20 },
+  { name: '20p', value: 0.2, quantity: 20 },
+  { name: '10p', value: 0.1, quantity: 30 },
+  { name: '5p', value: 0.05, quantity: 40 },
+  { name: '2p', value: 0.02, quantity: 50 },
+  { name: '1p', value: 0.01, quantity: 50 },
 ];
 
 let myItems = [
@@ -225,7 +225,6 @@ const giveChange = (amount) => {
   let remainder = amount;
   for (var i = 0; i < myCoins.length; i++) {
     if (remainder >= myCoins[i].value) {
-      console.log(Math.floor(amount / myCoins[i].value));
       myCoins[i].quantity += Math.floor(amount / myCoins[i].value);
       remainder = amount % myCoins[i].value;
     }
