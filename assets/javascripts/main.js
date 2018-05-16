@@ -166,23 +166,20 @@ const displayProduct = item => {
 
 // Update amount due
 const updateDue = () => {
-  if (itemSelected) {
-    if (amountDue >= 0) {
-      displayDue.innerHTML =
-        `
-          Amount due: £${amountDue.toFixed(2)}
-        `
-    } else {
-      displayDue.innerHTML =
-        `
-          Change due: £${(-amountDue).toFixed(2)}
-        `
-    }
-    if (amountDue <= 0 && itemSelected) {
-      returnProduct(itemSelected);
-      giveChange(Number((-amountDue).toFixed(2)));
-
-    }
+  if (amountDue >= 0) {
+    displayDue.innerHTML =
+      `
+        Amount due: £${amountDue.toFixed(2)}
+      `
+  } else {
+    displayDue.innerHTML =
+      `
+        Change due: £${(-amountDue).toFixed(2)}
+      `
+  }
+  if (amountDue <= 0 && itemSelected) {
+    returnProduct(itemSelected);
+    giveChange(Number((-amountDue).toFixed(2)));
   }
 };
 
