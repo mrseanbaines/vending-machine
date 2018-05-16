@@ -23,6 +23,7 @@ let myCoins = [
   { name: '50p', value: 0.5, quantity: 1 },
   { name: '20p', value: 0.2, quantity: 1 },
   { name: '10p', value: 0.1, quantity: 1 },
+  { name: '5p', value: 0.05, quantity: 1 },
   { name: '2p', value: 0.02, quantity: 1 },
   { name: '1p', value: 0.01, quantity: 1 },
 ];
@@ -33,6 +34,7 @@ let vendorsCoins = [
   { name: '50p', value: 0.5, quantity: 1 },
   { name: '20p', value: 0.2, quantity: 1 },
   { name: '10p', value: 0.1, quantity: 1 },
+  { name: '5p', value: 0.05, quantity: 1 },
   { name: '2p', value: 0.02, quantity: 1 },
   { name: '1p', value: 0.01, quantity: 1 },
 ];
@@ -232,6 +234,6 @@ const giveChange = (amount) => {
       remainder = amount % myCoins[i].value;
       // console.log(myCoins[i].name, Math.floor(amount / myCoins[i].value));
     }
-    updateMyCoins();
   }
+  updateMyCoins();
 };
