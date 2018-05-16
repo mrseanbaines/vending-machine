@@ -227,9 +227,10 @@ const giveChange = (amount) => {
   let remainder = amount;
   for (var i = 0; i < myCoins.length; i++) {
     if (remainder >= myCoins[i].value) {
-      myCoins[i].value += Math.floor(amount / myCoins[i].value);
+      console.log(Math.floor(amount / myCoins[i].value));
+      myCoins[i].quantity += Math.floor(amount / myCoins[i].value);
       remainder = amount % myCoins[i].value;
-      console.log(myCoins[i].name, Math.floor(amount / myCoins[i].value));
+      // console.log(myCoins[i].name, Math.floor(amount / myCoins[i].value));
     }
     updateMyCoins();
   }
