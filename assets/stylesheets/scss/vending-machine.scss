@@ -15,7 +15,8 @@
 
 .product,
 .my-product,
-.coin {
+.coin,
+.btn {
   width: 100%;
   cursor: pointer;
   outline: none;
@@ -66,4 +67,23 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: $pink;
+  color: $white;
+  border-radius: $border-radius;
+  padding: 10px;
+}
+
+.btn:hover,
+.btn:focus {
+  background: darken($pink, 5%);
+}
+
+.btn:active {
+  background: darken($pink, 10%);
 }

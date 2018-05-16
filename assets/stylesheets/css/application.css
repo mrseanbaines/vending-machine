@@ -1208,7 +1208,8 @@ h2 {
 
 .product,
 .my-product,
-.coin {
+.coin,
+.btn {
   width: 100%;
   cursor: pointer;
   outline: none;
@@ -1226,7 +1227,7 @@ h2 {
   background: #0069ed; }
 
 .my-product {
-  background: #55efc4; }
+  background: #55EFC4; }
 
 .my-product:hover,
 .my-product:focus {
@@ -1250,3 +1251,19 @@ h2 {
   position: absolute;
   top: 10px;
   right: 10px; }
+
+.btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #FF9FF3;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 10px; }
+
+.btn:hover,
+.btn:focus {
+  background: #ff86f0; }
+
+.btn:active {
+  background: #ff6ced; }

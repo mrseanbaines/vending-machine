@@ -79,6 +79,16 @@ const updateProducts = () => {
   })
 
   vendingMachine.innerHTML = productList;
+  // Handle product click events
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', ev => {
+      let el = ev.target.closest('.product').dataset.code;
+      displayProduct(selectedItem(el)[0]);
+      amountDue = selectedItem(el)[0].price - amountPaid;
+      itemSelected = selectedItem(el)[0];
+      updateDue();
+    });
+  }
 };
 updateProducts();
 
@@ -89,7 +99,7 @@ const updateMyCoins = () => {
   myCoins.map(coin => {
     myMoney +=
     `
-      <div class="xs-c3 xs-pad-y1">
+      <div class="xs-c4 xs-pad-y1">
         <button
           class="xs-pad-y6 xs-pad-x2 text-white text-center rounded coin"
           data-name="${coin.name}"
@@ -171,7 +181,7 @@ const updateDue = () => {
     if (amountDue <= 0 && itemSelected) {
       returnProduct(itemSelected);
       giveChange(Number((-amountDue).toFixed(2)));
-      itemSelected = null;
+
     }
   }
 };
@@ -183,17 +193,6 @@ const updatePaid = () => {
     Amount paid: £${amountPaid.toFixed(2)}
   `;
 };
-
-// Handle product click events
-for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', ev => {
-    let el = ev.target.closest('.product').dataset.code;
-    displayProduct(selectedItem(el)[0]);
-    amountDue = selectedItem(el)[0].price - amountPaid;
-    itemSelected = selectedItem(el)[0];
-    updateDue();
-  });
-}
 
 // Handle payment
 const handlePayment = (myCoin, vendorsCoin) => {
@@ -232,8 +231,12 @@ const giveChange = (amount) => {
       console.log(Math.floor(amount / myCoins[i].value));
       myCoins[i].quantity += Math.floor(amount / myCoins[i].value);
       remainder = amount % myCoins[i].value;
-      // console.log(myCoins[i].name, Math.floor(amount / myCoins[i].value));
     }
   }
   updateMyCoins();
+  itemSelected = null;
+  amountPaid = 0;
+  amountDue = 0;
+  updatePaid();
+  updateDue();
 };
