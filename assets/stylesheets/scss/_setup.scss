@@ -1,0 +1,69 @@
+// Colors
+$white: #FFF;
+$black: #000;
+$grey-light: #F7F6F5;
+$grey-dark: #2D3436;
+$blue: #54A0FF;
+$red: #FF7675;
+$green: #55efc4;
+
+// Layout
+$gutter: 4px;
+$site-max-width: 960px;
+
+// Typography
+$base-font-family: 'Comfortaa', 'helvetica', sans-serif;
+$monospace-font-family: 'Roboto Mono', monospace;
+$light-font-weight: 300;
+$base-font-weight: 400;
+$bold-font-weight: 700;
+$base-line-height: 1.4;
+$sm-line-height: 1.5;
+$base-font-size: 15px;
+$font-size-1: 21px;
+$font-size-2: 18px;
+$font-size-3: 15px;
+
+$border-radius: 4px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Mixins
+@mixin breakpoint($width) {
+  @if map-has-key($breakpoints, $width) {
+    @media (min-width: #{map-get($breakpoints, $width)}) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin transition($prop: all) {
+  transition: $prop 100ms ease-in-out;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vending Machine</title>
+  <link rel="stylesheet" href="dist/application.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row xs-justify-space-between">
+      <div class="xs-c12 md-c6">
+        <h2 class="xs-push-y6">Vending Machine</h2>
+        <div id="vending-machine" class="row"></div> <!-- .row -->
+        <div class="xs-pad-y1">
+          <div class="xs-pad4 fill-grey-dark rounded text-white">
+            <div id="display" data-countdown="">
+              <div id="display-item">Choose an item...</div>
+              <div id="display-due"></div>
+              <div id="display-paid"></div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- .c -->
+      <div class="xs-c6 md-c3">
+        <h2 class="xs-push-y6">Your money</h2>
+        <div id="wallet"></div>
+        <a href="#" id="top-up">Top up cash!</a>
+      </div> <!-- .c -->
+      <div class="xs-c6 md-c3">
+        <h2 class="xs-push-y6">Your items</h2>
+        <div id="items"></div>
+      </div> <!-- .c -->
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <script src="./assets/javascripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@import 'setup';
+
+#display {
+  position: relative;
+  font-family: $monospace-font-family;
+  height: ($base-font-size * $base-line-height) * 3;
+}
+
+#display::after {
+  content: attr(data-countdown);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.product,
+.my-product,
+.coin {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  @include transition();
+}
+
+.product {
+  background: $blue;
+}
+
+.product:hover,
+.product:focus {
+  background: darken($blue, 10%);
+}
+
+.product:active {
+  background: darken($blue, 20%);
+}
+
+.my-product {
+  background: $green;
+}
+
+.my-product:hover,
+.my-product:focus {
+  background: darken($green, 10%);
+}
+
+.my-product:active {
+  background: darken($green, 20%);
+}
+
+.coin {
+  background: $red;
+}
+
+.coin:hover,
+.coin:focus {
+  background: darken($red, 5%);
+}
+
+.coin:active {
+  background: darken($red, 10%);
+}
+
+.coin::after {
+  content: attr(data-quantity);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

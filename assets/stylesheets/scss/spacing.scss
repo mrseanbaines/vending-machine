@@ -1,0 +1,32 @@
+@import 'setup';
+
+@each $breakpoint, $width in $breakpoints {
+  @include breakpoint($breakpoint) {
+    // Padding all around
+    @for $i from 0 through 6 {
+      .#{$breakpoint}-pad#{$i} {
+        padding: $gutter * $i;
+      }
+    }
+    // Padding on the x-axis
+    @for $i from 0 through 6 {
+      .#{$breakpoint}-pad-x#{$i} {
+        padding-right: $gutter * $i;
+        padding-left: $gutter * $i;
+      }
+    }
+    // Padding on the y-axis
+    @for $i from 0 through 6 {
+      .#{$breakpoint}-pad-y#{$i} {
+        padding-top: $gutter * $i;
+        padding-bottom: $gutter * $i;
+      }
+    }
+    // Margin on top
+    @for $i from 0 through 6 {
+      .#{$breakpoint}-push-y#{$i} {
+        margin-top: $gutter * $i;
+      }
+    }
+  }
+}

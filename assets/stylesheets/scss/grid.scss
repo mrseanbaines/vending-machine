@@ -1,0 +1,57 @@
+@import 'setup';
+
+%column-styles {
+  position: relative;
+  min-height: 1px;
+  padding-right: $gutter;
+  padding-left: $gutter;
+}
+
+.container {
+  width: 100%;
+  max-width: $site-max-width;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$gutter;
+  margin-left: -$gutter;
+}
+
+@each $breakpoint, $width in $breakpoints {
+  @for $i from 1 through 12 {
+    .#{$breakpoint}-c#{$i} {
+      @extend %column-styles;
+    }
+  }
+
+  .#{$breakpoint}-auto,
+  .#{$breakpoint}-initial {
+    @extend %column-styles;
+  }
+}
+
+@each $breakpoint, $width in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @for $i from 1 through 12 {
+      .#{$breakpoint}-c#{$i} {
+        flex: 0 0 (100% / 12) * $i;
+      }
+    }
+
+    // Automatically sizes columns evenly within row
+    .#{$breakpoint}-auto {
+      flex: auto;
+    }
+
+    // Sets columns to default width
+    .#{$breakpoint}-initial {
+      flex: initial;
+    }
+  }
+}

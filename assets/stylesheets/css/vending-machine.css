@@ -1,0 +1,55 @@
+#display {
+  position: relative;
+  font-family: "Roboto Mono", monospace;
+  height: 63px; }
+
+#display::after {
+  content: attr(data-countdown);
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.product,
+.my-product,
+.coin {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out; }
+
+.product {
+  background: #54A0FF; }
+
+.product:hover,
+.product:focus {
+  background: #2184ff; }
+
+.product:active {
+  background: #0069ed; }
+
+.my-product {
+  background: #55efc4; }
+
+.my-product:hover,
+.my-product:focus {
+  background: #26ebb4; }
+
+.my-product:active {
+  background: #13cb98; }
+
+.coin {
+  background: #FF7675; }
+
+.coin:hover,
+.coin:focus {
+  background: #ff5d5c; }
+
+.coin:active {
+  background: #ff4342; }
+
+.coin::after {
+  content: attr(data-quantity);
+  position: absolute;
+  top: 10px;
+  right: 10px; }
